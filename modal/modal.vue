@@ -25,6 +25,42 @@
         </div>
     </div>
 </template>
+<script>
+    export default {
+        props: {
+            bodyNoScroll: {
+                type: Boolean,
+                default: true
+            },
+            noPadding: {
+                type: Boolean,
+                default: false
+            }
+        },
+        methods: {
+            clickAway(e) {
+                this.event = function (event) {
+                    if (event.target.className === "modal-wrap") {
+                        this.hideModal()
+                        document.body.removeEventListener("click", this.event);
+                    }
+                }.bind(this);
+
+                document.body.addEventListener("click", this.event);
+            },
+            bodyScroll() {
+                document.body.classList.toggle("overflow-hidden");
+            },
+            hideModal() {
+                this.bodyScroll();
+                this.$emit("hideModal");
+            }
+        },
+        mounted() {
+            if (this.bodyNoScroll) this.bodyNoScroll();
+        }
+    };
+</script>
 <style scoped>
 .modal-wrap {
     position: fixed;
@@ -77,39 +113,3 @@
   animation-name: slideInLeft;
 }
 </style>
-<script>
-    export default {
-        props: {
-            bodyScroll: {
-                type: Boolean,
-                default: false
-            },
-            noPadding: {
-                type: Boolean,
-                default: false
-            }
-        },
-        methods: {
-            clickAway(e) {
-                this.event = function (event) {
-                    if (event.target.className === "modal-wrap") {
-                        this.hideModal()
-                        document.body.removeEventListener("click", this.event);
-                    }
-                }.bind(this);
-
-                document.body.addEventListener("click", this.event);
-            },
-            bodyNoScroll() {
-                document.body.classList.toggle("overflow-hidden");
-            },
-            hideModal() {
-                this.bodyNoScroll();
-                this.$emit("hideModal");
-            }
-        },
-        mounted() {
-
-        }
-    };
-</script>
