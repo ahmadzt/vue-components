@@ -1,6 +1,7 @@
 /*
     Author: Ahmad Zaidi Ahmad Toha
     email: ahmadzt6210@gmail.com
+    github: https://github.com/ahmadzt
 */
 
 <template>
@@ -27,6 +28,7 @@
 </template>
 <script>
     export default {
+        name: "Modal",
         props: {
             bodyNoScroll: {
                 type: Boolean,
@@ -38,6 +40,13 @@
             }
         },
         methods: {
+            bodyScroll() {
+               document.body.classList.toggle("overflow-hidden");
+            },
+            hideModal() {
+                if (this.bodyNoScroll) this.bodyScroll();
+                this.$emit("hideModal");
+            },
             clickAway(e) {
                 this.event = function (event) {
                     if (event.target.className === "modal-wrap") {
@@ -45,16 +54,8 @@
                         document.body.removeEventListener("click", this.event);
                     }
                 }.bind(this);
-
                 document.body.addEventListener("click", this.event);
             },
-            bodyScroll() {
-                document.body.classList.toggle("overflow-hidden");
-            },
-            hideModal() {
-                this.bodyScroll();
-                this.$emit("hideModal");
-            }
         },
         mounted() {
             if (this.bodyNoScroll) this.bodyNoScroll();
@@ -111,5 +112,9 @@
 
 .slideInLeft {
   animation-name: slideInLeft;
+}
+
+.overflow-hidden {
+    overflow: hidden;
 }
 </style>
