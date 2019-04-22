@@ -1,3 +1,6 @@
+![](/img/Screenshot 2019-04-22 at 1.23.47 PM.png "Philadelphia's Magic Gardens")
+![](/img/Screenshot 2019-04-22 at 1.24.13 PM.png "Philadelphia's Magic Gardens")
+
 # Google Maps Direction
 
 This is a direction vue prop to be used with Google Maps Javascript API. It implements Autocomplete, Route mapping, and drag marker to specify starting point.
