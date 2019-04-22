@@ -1,5 +1,5 @@
-![](/img/Screenshot 2019-04-22 at 1.23.47 PM.png "Philadelphia's Magic Gardens")
-![](/img/Screenshot 2019-04-22 at 1.24.13 PM.png "Philadelphia's Magic Gardens")
+![](img/Screenshot 2019-04-22 at 1.23.47 PM.png "Philadelphia's Magic Gardens")
+![](img/Screenshot 2019-04-22 at 1.24.13 PM.png "Philadelphia's Magic Gardens")
 
 # Google Maps Direction
 
